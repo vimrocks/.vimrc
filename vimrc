@@ -1,12 +1,12 @@
 set encoding=utf-8
 
-" szerokosc tab
+" tab width
 set tabstop=4
-" zamiana tab na spacje
+" change tab to spaces
 set expandtab
-" szerokosc wciec
+" indentation width
 set shiftwidth=4
-" ile spacji jest kasowanych przez <backspace>
+" bs width
 set softtabstop=4
 
 set smartindent
@@ -27,36 +27,20 @@ set completeopt=preview,longest,menu
 set completefunc=pythoncomplete#Complete
 set completefunc=rubycomplete#Complete
 
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-imap <up> <nop>
-imap <left> <nop>
-imap <right> <nop>
-map <right> <nop>
-
 inoremap <C-space> <C-x> <C-o>
 
 let mapleader = "-"
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
- 
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
 
 nnoremap <leader>e :vsplit $MYVIMRC<cr>G
 
-
 nnoremap , :w<cr>q:k
 
-iabbrev cpp@@ #include <iostream><cr><cr>using namespace std;<cr><cr>int main()<cr>{<cr>return 0;<cr>}<esc>%o
+iabbrev cpp;; #include <iostream><cr><cr>using namespace std;<cr><cr>int main()<cr>{<cr>return 0;<cr>}<esc>%o
 
-iabbrev ce@ cout << "" << endl;<esc>2F"i
-
-
+iabbrev ce;; cout << "" << endl;<esc>2F"i
 
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
@@ -98,10 +82,9 @@ if has("autocmd")
     autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-se so=999
+set so=999
 
 nnoremap <leader><space> :noh<cr>
-
 
 for key in [ ".", ":", "<bar>", "/", "<bslash>", "*" ]
     exe "nnoremap ci".key." T".key."ct".key
